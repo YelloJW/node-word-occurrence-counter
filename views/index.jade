@@ -2,4 +2,22 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to the #{title} app
+
+    form(action='/',method='post')
+      label(for='example url') example url
+         input(id='example-url',type='text', placeholder='@',name='example_url')
+         input(type='submit',value='count words')
+
+  if example_url != undefined
+    h1 History
+    ul
+    each url in history
+      li
+        span= url
+    h1 Results for #{example_url}
+    p= result
+    ul
+    each value, key in result
+     li
+      span= key + ': ' + value + ' '

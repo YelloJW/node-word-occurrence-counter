@@ -2,4 +2,24 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to the #{title} app
+  form(action='/',method='post')
+    label(for='input-url') input url
+       input(id='input-url',type='text', placeholder='@',name='input_url')
+       input(type='submit',value='count words')
+  if url != undefined
+    h1 History
+    each arr in history
+        form(action='/',method='post')
+          input(type="hidden" name="saved_url" value="#{arr[0]}")
+          button(type="submit") #{arr[0]}
+    h1 Results for #{url}
+    table
+      thead
+        th word
+        th count
+      tbody
+      each arr in results
+        tr
+          td= arr[0]
+          td= arr[1]

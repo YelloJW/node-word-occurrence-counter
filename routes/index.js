@@ -1,49 +1,27 @@
 var express = require('express');
 var router = express.Router();
-const fetch = require('node-fetch');
-const previous_urls = []
+const { getWords, getSavedRecord } = require('../public/javascripts/main');
 
-const userHistory = (example_url) => {
-  previous_urls.push(example_url)
-  return previous_urls
-}
 
-const countWords = (wordArray) => {
-        const wordCount = {};
-        for (let i = 0; i < wordArray.length; i++) {
-          let num = wordArray[i];
-          wordCount[num] = wordCount[num] ? wordCount[num] + 1 : 1;
-        }
-        return wordCount
-}
-
-const getWords = async (req, res) => {
-  // return `Hey are you ready to count the words in ${example_url}`
-  const example_url = req.body.example_url;
-  await fetch(example_url)
-    .then((res) => {
-        return res.text();
-    }).then((body) => {
-        // console.log(body);
-        const string = body.replace(/[^a-zA-Z ]/g, ' ');
-        return string.split(' ');
-    }).then((wordArray) => {
-        // console.log(wordArray);
-        return countWords(wordArray);
-    }).then((wordCount) => {
-        console.log(wordCount);
-        console.log(typeof(wordCount))
-        res.render('index', {title: 'Word Occurrence Counter', example_url: example_url, result: wordCount, history: userHistory(example_url) })
-    })
-}
-
-/* GET home page. */
+// get home page
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Word Occurrence Counter' });
 });
 
+// post results on home page
 router.post('/', function(req, res, next) {
-  getWords(req, res);
+  const input_url = req.body.input_url;
+  const saved_url = req.body.saved_url;
+  console.log(input_url)
+  console.log(saved_url)
+  // conditional to check if url has been input or selected from history
+  if (input_url) {
+  // method to get and count words from url DOM
+  getWords(res, input_url);
+  } else {
+  //method to return saved word count from previously input url
+  getSavedRecord(res, saved_url);
+  };
 });
 
 module.exports = router;

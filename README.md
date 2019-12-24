@@ -1,7 +1,7 @@
 A node.js client-server application for counting occurrences of a word in the DOM of a URL, which is input by the user (based on example https://norvig.com/big.txt) . 
 
 Setup:
-- clone repository ``` git clone ```
+- clone repository ``` git clone git@github.com:YelloJW/node-word-occurrence-counter.git ```
 - install package.json dependencies ``` npm install ```
 - run app with ```npm start ``` on localhost:8000
 - run tests with ``` npm test ``` (includes test coverage report)

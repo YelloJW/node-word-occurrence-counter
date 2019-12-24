@@ -7,7 +7,9 @@ Using:
 - Express as a web framework
 - Jade as a view engine
 - Mocha as a testing framework with Superagent
-- Nyc to provide a test coverage report (below)
+- Nyc to provide a test coverage report
+
+Tests for loading home page (server test), posting a url and returning results (coverage report below)
 
 ```
 --------------------------------|---------|----------|---------|---------|-------------------

@@ -1,8 +1,11 @@
 A node.js client-server application for counting occurrences of a word in the DOM of a URL, which is input by the user (based on example https://norvig.com/big.txt) . 
 
-Run with command ```npm start``` on localhost:8000
-and test using command ```npm test``` (includes test coverage report)
-
+Setup:
+- clone repository ``` git clone ```
+- install package.json dependencies ``` npm install ```
+- run app with ```npm start ``` on localhost:8000
+- run tests with ``` npm test ``` (includes test coverage report)
+ 
 Using:
 - Express as a web framework
 - Jade as a view engine

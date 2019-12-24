@@ -1,7 +1,7 @@
 A node.js client-server application for counting occurrences of a word in the DOM of a URL(input). 
 
 Run with command ```npm start``` on localhost:8000
-test using command ```npm test```
+and test using command ```npm test``` (includes test coverage report)
 
 Using:
 - Express as a web framework

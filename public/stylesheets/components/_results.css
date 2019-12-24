@@ -1,0 +1,28 @@
+#results {
+  height: 100vh;
+  color: black;
+  padding: 25px 0 25px 0;
+  background-image: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.9)) ,url('../../images/nate_background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#results h1 {
+  color: #479BAC;
+}
+
+.results-table {
+  margin: 0 auto;
+  padding-top: 20px;
+  width: 300px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.results-table th, td {
+  border-bottom: 1px solid #ddd;
+}
+
+.results-table tr:hover {
+  background-color: rgba(199, 226, 234, 0.5);
+}

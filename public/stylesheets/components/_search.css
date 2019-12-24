@@ -1,0 +1,45 @@
+#search {
+  height: 100vh;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  background-image: url('../../images/nate_background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.url-input {
+  text-align: center;
+  border-radius: 8px 0 0 8px;
+  border: 1px solid #EBEBEB;
+  padding: 10px;
+  margin: 10px 0 20px 0;
+  font-size: 18px;
+  opacity: 0.6;
+}
+
+.url-input:focus {
+  outline-width: 0;
+  opacity: 1;
+}
+
+.url-submit {
+  border-radius: 0 8px 8px 0;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px 0 10px 0;
+  background: black;
+  color: white;
+  opacity: 1;
+  font-size: 18px;
+  transition: 0.5s;
+}
+
+.url-submit:hover {
+  opacity: 0.8;
+  border: 1px solid white;
+  transition: 0.5s;
+}
+
+

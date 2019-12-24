@@ -1,25 +1,37 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to the #{title} app
-  form(action='/',method='post')
-    label(for='input-url') input url
-       input(id='input-url',type='text', placeholder='@',name='input_url')
-       input(type='submit',value='count words')
-  if url != undefined
-    h1 History
-    each arr in history
-        form(action='/',method='post')
-          input(type="hidden" name="saved_url" value="#{arr[0]}")
-          button(type="submit") #{arr[0]}
-    h1 Results for #{url}
-    table
-      thead
-        th word
-        th count
-      tbody
-      each arr in results
-        tr
-          td= arr[0]
-          td= arr[1]
+  #search
+    h1= title
+    form(action="/",method="post")
+      input(type="text", class="url-input", placeholder="https://example.com", name="input_url")
+      input(type="submit", class="url-submit", value="count words")
+    if url != undefined
+      a(href="#results" class="link-results") Results for #{url}
+  #history
+    if url != undefined
+      div
+        a(href="#search" class="link-results") Back to search
+        h1 History
+      .saved-urls
+        each arr in history
+          form(action="/", method="post")
+            input(type="hidden" name="saved_url" value="#{arr[0]}")
+            button(type="submit" class="saved-url") #{arr[0]}
+      div
+        a(href="#results" class="link-results") Results for #{url}
+  #results
+    if url != undefined
+      a(href="#search" class="link-results") Back to search
+      a(href="#history" class="link-results") Search history
+      h1 Results
+      h2 #{url}
+      table.results-table
+        thead
+          th Word
+          th Count
+        tbody
+        each arr in results
+          tr
+            td= arr[0]
+            td= arr[1]

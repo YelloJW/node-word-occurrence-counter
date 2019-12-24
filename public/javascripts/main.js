@@ -1,6 +1,16 @@
 const fetch = require('node-fetch');
 const previous_urls = []
 
+//function to sort words by count desc
+const sortWords = (wordCountArr) => {
+  wordCountArr = wordCountArr.sort(function Comparator(a, b) {
+     if (a[1] < b[1]) return 1;
+     if (a[1] > b[1]) return -1;
+     return 0;
+    });
+  return wordCountArr
+}
+
 //function to return word counts for previously saved urls
 const getSavedRecord = (res, saved_url) => {
   previous_urls.forEach((record) => {
@@ -40,6 +50,7 @@ const getWords = async (res, input_url) => {
         return countWords(wordArray);
     }).then((wordCount) => {
         wordCountArr = Object.entries(wordCount);
+        wordCountArr = sortWords(wordCountArr);
         res.render('index', {title: 'Word Occurrence Counter', url: input_url, results: wordCountArr, history: userHistory(input_url, wordCountArr) });
     })
 }
@@ -47,5 +58,5 @@ const getWords = async (res, input_url) => {
 exports.getWords = getWords;
 exports.countWords = countWords;
 exports.userHistory = userHistory;
-exports.getSavedRecord = getSavedRecord;
+exports.getSavedRecord = getSavedRecord
 

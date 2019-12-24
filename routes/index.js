@@ -12,8 +12,6 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
   const input_url = req.body.input_url;
   const saved_url = req.body.saved_url;
-  console.log(input_url)
-  console.log(saved_url)
   // conditional to check if url has been input or selected from history
   if (input_url) {
   // method to get and count words from url DOM

@@ -8,8 +8,8 @@ block content
       input(type="submit", class="url-submit", value="count words")
     if url != undefined
       a(href="#results" class="link-results") Results for #{url}
-  #history
-    if url != undefined
+  if url != undefined
+    #history
       div
         a(href="#search" class="link-results") Back to search
         h1 History
@@ -20,8 +20,7 @@ block content
             button(type="submit" class="saved-url") #{arr[0]}
       div
         a(href="#results" class="link-results") Results for #{url}
-  #results
-    if url != undefined
+    #results
       a(href="#search" class="link-results") Back to search
       a(href="#history" class="link-results") Search history
       h1 Results

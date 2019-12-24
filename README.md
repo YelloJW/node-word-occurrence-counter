@@ -37,3 +37,4 @@ All files                       |   93.06 |       75 |    87.5 |   92.86 |
  - Dynamic sorting method, currently fixed based on word count DESC 
  - Results rendered at '/#results' instead of '/' for UX
  - AJAX for reloading saved searches
+ - UI / UX (move section links into sticky navbar) 

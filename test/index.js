@@ -4,19 +4,17 @@ const { getWords } = require('../public/javascripts/main');
 
 app = require('../app.js');
 
-describe('GET /', function() {
-  it('loads the home page', function(done) {
+describe('GET / home page', function() {
+  it('load home page', function(done) {
     request(app).get("/")
       .expect(200)
-      .expect(/Word Occurrence Counter/)
-      .expect(/Word Occurrence Counter/, done)
-
+      .expect(/Word Occurrence Counter/,done)
   });
 });
 
-describe('POST /', function() {
+describe('POST / and load results from example url', function() {
   this.timeout(20000);
-  it('loads results when url input and submitted', function(done) {
+  it('load results when example url input and submitted', function(done) {
     request(app).post("/")
       .send({input_url: 'https://norvig.com/big.txt'})
       .expect(/Results for https:\/\/norvig.com\/big.txt/)
@@ -24,18 +22,18 @@ describe('POST /', function() {
   });
 });
 
-describe('POST /', function() {
+describe('POST / and load results from other url', function() {
   this.timeout(20000);
-  it('loads results when url input and submitted', function(done) {
+  it('load results when other url input and submitted', function(done) {
     request(app).post("/")
       .send({input_url: 'https://bbc.com'})
       .expect(/https:\/\/bbc.com/,done)
   });
 });
 
-describe('POST /', function() {
+describe('POST / reload saved results', function() {
   this.timeout(20000);
-  it('loads results when previously visited url selected', function(done) {
+  it('reload saved results when previously visited url selected from history', function(done) {
     request(app).post("/")
       .send({saved_url: 'https://norvig.com/big.txt'})
       .expect(/Results for https:\/\/norvig.com\/big.txt/)

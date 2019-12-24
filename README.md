@@ -9,7 +9,12 @@ Using:
 - Mocha as a testing framework with Superagent
 - Nyc to provide a test coverage report
 
-Tests for loading home page (server test), posting a url and returning results (coverage report below)
+Tech stack chosen on the basis of no prior experience with Express, Jade, Mocha or Nyc and opportunity to learn new technologies
+
+Tests of the apps basic functionality, with associated test coverage report:
+-	1 x server test which loads the home page and looks for the app title
+-	2 x POST request tests which send different input URLs and check for results being posted on the index view page
+-	1 x POST request test, which sends a previously saved URL and reloads the saved results
 
 ```
 --------------------------------|---------|----------|---------|---------|-------------------
@@ -26,8 +31,9 @@ All files                       |   93.06 |       75 |    87.5 |   92.86 |
 ```
 
  Some areas for improvement given more time:
+ - Validation of url inputs
+ - Flexibility of response to different DOM complexities (e.g. https://norvig.com/big.txt vs https://www.bbc.co.uk/ 
  - Performance when rendering results (pagination)
- - Rendering results (rendered at '/#results' rather than '/') 
- - Dynamic sorting method, sort currently fixed (word count desc) 
- - Utilising AJAX to reload saved searches
- 
+ - Dynamic sorting method, currently fixed based on word count DESC 
+ - Results rendered at '/#results' instead of '/' for UX
+ - AJAX for reloading saved searches

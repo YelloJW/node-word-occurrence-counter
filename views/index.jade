@@ -15,7 +15,7 @@ block content
         h1 History
       .saved-urls
         each arr in history
-          form(action="/", method="post")
+          form(action="/saved_result", method="get")
             input(type="hidden" name="saved_url" value="#{arr[0]}")
             button(type="submit" class="saved-url") #{arr[0]}
       div

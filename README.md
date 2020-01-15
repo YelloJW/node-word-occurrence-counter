@@ -33,7 +33,7 @@ All files                       |   93.06 |       75 |    87.5 |   92.86 |
 --------------------------------|---------|----------|---------|---------|-------------------
 ```
 
- Some areas for improvement given more time:
+ Areas for ongoing development:
  - Validation of url inputs
  - Flexibility of response to different DOM complexities (e.g. https://norvig.com/big.txt vs https://www.bbc.co.uk/ 
  - Performance when rendering results (pagination)
